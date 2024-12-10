@@ -1,19 +1,24 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "git-submodules": {
-    "enabled": true,
-    "versioning": "git",
-    "packages": [
-      {
-        "name": "swagger-ui",
-        "repository": "https://github.com/swagger-api/swagger-ui",
-        "updateType": "tag",
-        "rangeStrategy": "pin"
-      }
-    ]
+    "enabled": true
   },
+  "packageRules": [
+    {
+      "matchDatasources": [
+        "git-tags"
+      ],
+      "matchPackageNames": [
+        "swagger-ui"
+      ],
+      "registryUrls": [
+        "https://github.com/swagger-api/swagger-ui"
+      ],
+      "rangeStrategy": "pin",
+      "commitMessage": "Update swagger-ui to latest tag",
+      "prTitle": "Update swagger-ui to latest tag"
+    }
+  ],
   "prConcurrentLimit": 1,
-  "prCreation": "not-pending",
-  "commitMessage": "Update swagger-ui to latest tag",
-  "prTitle": "Update swagger-ui to latest tag"
+  "prCreation": "not-pending"
 }
